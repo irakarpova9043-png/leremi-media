@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeReMi Publisher — connected</title>
+<style>body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:60px auto;padding:0 20px;color:#222;text-align:center}.ok{font-size:22px;margin:20px 0}code{background:#f3f3f3;padding:6px 10px;border-radius:6px;word-break:break-all;display:inline-block}</style></head><body>
+<h1>LeReMi Publisher</h1><div id="msg" class="ok"></div><p id="code"></p>
+<script>
+const p=new URLSearchParams(location.search);
+const m=document.getElementById('msg');
+if(p.get('code')){m.textContent='✅ TikTok account connected. You can close this page.';document.getElementById('code').innerHTML='Authorization code:<br><code id="authcode">'+p.get('code').replace(/[<>&"]/g,'')+'</code>';}
+else if(p.get('error')){m.textContent='Authorization was not completed: '+(p.get('error_description')||p.get('error'));}
+else{m.textContent='Waiting for TikTok authorization.';}
+</script></body></html>
